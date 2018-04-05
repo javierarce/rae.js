@@ -70,4 +70,4 @@ function extractDefinitionFromHTML(text) {
   return response
 }
 
-module.exports = { getDefinitionForWord: getDefinitionForWord }
+module.exports = { search: getDefinitionForWord }
