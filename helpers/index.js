@@ -39,7 +39,18 @@ function extractDefinitionFromHTML (text) {
 
       if (lineBeginsWithNumber) {
         let lineWithoutNumber = line.match(/\d+\. (.*?)$/)[1]
-        subdefinitions.definition.push(lineWithoutNumber)
+
+        if (subdefinitions.definition) {
+          subdefinitions.definition.push(lineWithoutNumber)
+        } else {
+          subdefinitions = {
+            entry: [],
+            definition: [lineWithoutNumber]
+          }
+
+          results.push(subdefinitions)
+        }
+
       } else {
         subdefinitions = {
           entry: line,
