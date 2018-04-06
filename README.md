@@ -24,7 +24,7 @@ RAE.search('planetoide').then(definition =>
 
 That should return something like this:
 
-```JSON
+```javascript
 [
   {
     "title": "planetoide.",
