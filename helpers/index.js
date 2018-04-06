@@ -1,7 +1,17 @@
 let xpath = require('xpath')
 let DOMParser = require('xmldom').DOMParser
 
-module.exports = function (text) {
+const URL = 'http://dle.rae.es/srv/fetch'
+const PARAMS = ['TS017111a7_id=3',
+'TS017111a7_cr=1895c885a17201dca76eb401d01fd59f:jlmn:U9YRi5sw:1485055093',
+'TS017111a7_76=0',
+'TS017111a7_86=0',
+'TS017111a7_md=1',
+'TS017111a7_rf=0',
+'TS017111a7_ct=0',
+'TS017111a7_pd=0'].join('&')
+
+function extractDefinitionFromHTML (text) {
   let errorHandler = () => {}
 
   const doc = new DOMParser({ errorHandler })
@@ -51,4 +61,10 @@ module.exports = function (text) {
   }
 
   return response
+}
+
+module.exports = {
+  URL,
+  PARAMS,
+  extractDefinitionFromHTML
 }
