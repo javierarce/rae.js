@@ -22,6 +22,24 @@ RAE.search('planetoide').then(definition =>
 
 ```
 
+That should return something like this:
+
+```javascript
+[
+  {
+    "title": "planetoide.",
+    "definition": [
+      {
+        "entry": [],
+        "definition": [
+          "m. asteroide (‖ cuerpo menor del sistema solar)."
+        ]
+      }
+    ]
+  }
+]
+```
+
 ## Tests
 
   `npm test`
