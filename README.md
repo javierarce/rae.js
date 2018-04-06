@@ -27,7 +27,7 @@ That should return something like this:
 ```javascript
 [
   {
-    "title": "planetoide.",
+    "title": "planetoide",
     "definition": [
       {
         "entry": [],
