@@ -63,8 +63,11 @@ function extractDefinitionFromHTML (text) {
       i++
     }
 
+    let title = definition[0]
+    title = title.replace(/[0-9.]/g, '')
+
     response.push({
-      title: definition[0],
+      title: title,
       definition: results
     })
 

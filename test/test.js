@@ -11,8 +11,8 @@ it('should return the definition of a word', function() {
 
   RAE.search('espejo').then(definition => {
     expect(definition.length).to.equal(2)
-    expect(definition[1].title).to.equal('espejo.')
-    expect(definition[0].title).to.equal('espejar.')
+    expect(definition[1].title).to.equal('espejo')
+    expect(definition[0].title).to.equal('espejar')
 
     expect(definition[0].definition[0].entry).to.equal('De espejo.')
     expect(definition[0].definition[0].definition.length).to.equal(5)
