@@ -1,7 +1,7 @@
 let xpath = require('xpath')
 let DOMParser = require('xmldom').DOMParser
 
-const URL = 'http://dle.rae.es/srv/fetch'
+const URL = 'https://dle.rae.es/srv/search/1552223354284'
 const PARAMS = ['TS017111a7_id=3',
 'TS017111a7_cr=1895c885a17201dca76eb401d01fd59f:jlmn:U9YRi5sw:1485055093',
 'TS017111a7_76=0',
@@ -18,6 +18,7 @@ function extractDefinitionFromHTML (text) {
     .parseFromString(text, 'text/xml')
 
   let result = xpath.evaluate("//article", doc, null, xpath.XPathResult.ANY_TYPE, null)
+
 
   let response = []
   let node = result.iterateNext()

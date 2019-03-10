@@ -1,17 +1,22 @@
 'use strict'
 
-let fetch = require('node-fetch')
 let helper = require('./helpers')
+let request = require('request')
+let rq = require('request-promise-native')
 
 function search (word) {
-  let params = { method: 'post', body: helper.PARAMS }
-  let url = helper.URL + '?w=' + word
+  let options = { method: 'GET',
+    url: `https://dle.rae.es/srv/search/${Date.now()}`,
+    qs: { w: word },
+    headers: { 'cache-control': 'no-cache' } 
+  }
 
-  return fetch(url, params)
-    .then(body => body.text())
+  return rq(options)
     .then(html => {
       return helper.extractDefinitionFromHTML(html)
     })
 }
 
 module.exports = { search }
+
+search('perro').then((a) => { console.log(a)})
