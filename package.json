@@ -1,6 +1,6 @@
 {
   "name": "rae.js",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Search words in the RAE",
   "main": "index.js",
   "scripts": {

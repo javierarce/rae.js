@@ -19,4 +19,3 @@ function search (word) {
 
 module.exports = { search }
 
-search('perro').then((a) => { console.log(a)})
