@@ -1,16 +1,6 @@
 let xpath = require('xpath')
 let DOMParser = require('xmldom').DOMParser
 
-const URL = 'https://dle.rae.es/srv/search/1552223354284'
-const PARAMS = ['TS017111a7_id=3',
-'TS017111a7_cr=1895c885a17201dca76eb401d01fd59f:jlmn:U9YRi5sw:1485055093',
-'TS017111a7_76=0',
-'TS017111a7_86=0',
-'TS017111a7_md=1',
-'TS017111a7_rf=0',
-'TS017111a7_ct=0',
-'TS017111a7_pd=0'].join('&')
-
 function extractDefinitionFromHTML (text) {
   let errorHandler = () => {}
 
@@ -18,7 +8,6 @@ function extractDefinitionFromHTML (text) {
     .parseFromString(text, 'text/xml')
 
   let result = xpath.evaluate("//article", doc, null, xpath.XPathResult.ANY_TYPE, null)
-
 
   let response = []
   let node = result.iterateNext()
@@ -39,7 +28,7 @@ function extractDefinitionFromHTML (text) {
       let lineBeginsWithNumber = !isNaN(+line.charAt(0))
 
       if (lineBeginsWithNumber) {
-        let lineWithoutNumber = line.match(/\d+\. (.*?)$/)[1]
+        let lineWithoutNumber = line.match(/\d+\. (.*?)$/) && line.match(/\d+\. (.*?)$/)[1]
 
         if (subdefinitions.definition) {
           subdefinitions.definition.push(lineWithoutNumber)
@@ -79,7 +68,5 @@ function extractDefinitionFromHTML (text) {
 }
 
 module.exports = {
-  URL,
-  PARAMS,
   extractDefinitionFromHTML
 }

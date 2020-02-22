@@ -5,8 +5,9 @@ let request = require('request')
 let rq = require('request-promise-native')
 
 function search (word) {
-  let options = { method: 'GET',
-    url: `https://dle.rae.es/srv/search/${Date.now()}`,
+  let options = { 
+    method: 'GET',
+    url: `https://dle.rae.es/srv/search`,
     qs: { w: word },
     headers: { 'cache-control': 'no-cache' } 
   }
@@ -14,8 +15,9 @@ function search (word) {
   return rq(options)
     .then(html => {
       return helper.extractDefinitionFromHTML(html)
+    }).catch((e) => {
+      console.log(e);
     })
 }
 
 module.exports = { search }
-
