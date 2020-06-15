@@ -6,6 +6,9 @@
   "scripts": {
     "test": "mocha --reporter spec"
   },
+  "publishConfig": { 
+    "registry": "https://npm.pkg.github.com/@javierarce" 
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/javierarce/rae.js.git"
