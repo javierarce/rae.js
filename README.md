@@ -17,7 +17,7 @@ Node package that returns the definition of a word using the RAE dictionary.
 let RAE = require('rae.js');
 
 RAE.search('planetoide').then(definition =>
-  console.log(definition);
+  console.log(definition)
 );
 
 ```
